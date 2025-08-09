@@ -97,3 +97,79 @@ function 만들함수(x: { subject: string } | { subject: string[] }): string {
   return last as string;
 }
 만들함수(민수쌤);
+type AnimalType = { name: string; age: number };
+let 동물: AnimalType = { name: "kim", age: 20 };
+
+type GirlfriendType = {
+  readonly name: string;
+};
+const 여친: GirlfriendType = {
+  name: "엠버",
+};
+
+type Name = string;
+type Age = number;
+type Person = Name | Age;
+
+type PositionX = { x: number };
+type PositionY = { y: number };
+
+type NewType = PositionX & PositionY;
+
+let position: NewType = { x: 10, y: 20 };
+
+type a = { color?: string; size: number };
+type b = { readonly position: number[] };
+type c = a & b;
+type 검사 = {
+  name: string;
+  phone: number;
+  email: string;
+  kid: boolean;
+};
+const check: 검사 = { name: "kim", phone: 123, email: "ss", kid: true };
+
+let 사람: 123;
+
+let 접니다: "대머리" | "솔로";
+
+let 가바보: "가위" | "바위" | "보";
+
+function 가위바위보(x: "가위" | "바위" | "보"): ("가위" | "바위" | "보")[] {
+  return [x];
+}
+가위바위보("가위");
+
+var 자료 = {
+  name: "kim",
+} as const;
+자료.name;
+function 내함수(a: "kim") {}
+내함수(자료.name);
+type 함수타입 = (a: string) => number;
+let 함수2: 함수타입 = function (a) {
+  return 12;
+};
+let 회원정보 = {
+  name: "kim",
+  plusOne(a: number): number {
+    return a + 1;
+  },
+  changeName: (a: number) => void {},
+};
+회원정보.plusOne(1);
+function cutZero(x: string): string {
+  let result = x.replace(/^0/, "");
+  return result;
+}
+function removeDash(x: string): number {
+  let result: string = x.replace(/-/g, "");
+
+  return Number(result);
+}
+function 콜백(a: string, b: (s: string) => string, c: (s: string) => number) {
+  let result = b(a);
+  let result2 = c(result);
+  console.log(result2);
+}
+콜백("010-1111-2222", cutZero, removeDash);
