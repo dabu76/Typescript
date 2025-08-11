@@ -159,3 +159,10 @@ var 링크2 = document.querySelectorAll(".naver");
 링크2.forEach(function (link) {
     link.href = "https://kakao.com";
 });
+function product(a, b) {
+    this.name = a;
+    this.price = b;
+}
+var product1 = product("shirts", 50000);
+var product2 = product("pants", 60000);
+console.log(product1);

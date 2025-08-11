@@ -11,6 +11,17 @@
     <img id="image" src="test.jpg" />
   </head>
   <body>
-    <script src="index.js"></script>
+    <script>
+      function Product(a, b) {
+        this.name = a;
+        this.price = b;
+        this.plus = function () {
+          console.log("부가세" + this.price / 10);
+        };
+      }
+      var product1 = new Product("shirts", 50000);
+      var product2 = new Product("pants", 60000);
+      console.log(product2, product1.plus());
+    </script>
   </body>
 </html>
