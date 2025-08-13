@@ -109,7 +109,7 @@ const 여친: GirlfriendType = {
 
 type Name = string;
 type Age = number;
-type Person = Name | Age;
+type Person2 = Name | Age;
 
 type PositionX = { x: number };
 type PositionY = { y: number };
@@ -198,10 +198,142 @@ let 링크2 = document.querySelectorAll<HTMLAnchorElement>(".naver");
 링크2.forEach((link) => {
   link.href = "https://kakao.com";
 });
-function product(a, b) {
-  this.name = a;
-  this.price = b;
+class Person {
+  name: string;
+  data: number = 0;
+  constructor(a: string) {
+    this.name = a;
+  }
+  함수(a: string) {
+    console.log("안녕" + a);
+  }
 }
-var product1 = product("shirts", 50000);
-var product2 = product("pants", 60000);
-console.log(product1);
+
+Person.prototype.함수 = function () {};
+let 사람1 = new Person("kim");
+let 사람2 = new Person("park");
+class 차 {
+  model: string;
+  money: number;
+  constructor(a: string, b: number) {
+    this.model = a;
+    this.money = b;
+  }
+  세금() {
+    return this.money / 10;
+  }
+}
+let car = new 차("소나타", 3000);
+console.log(car.세금());
+class Word {
+  num: (string | number)[] = [];
+  str: (string | number)[] = [];
+  constructor(a: (string | number)[]) {
+    for (let i = 0; i < a.length; i++) {
+      if (typeof a[i] === "string") {
+        this.str.push(a[i]);
+      }
+      if (typeof a[i] === "number") {
+        this.num.push(a[i]);
+      }
+    }
+  }
+}
+let obj2: (string | number)[] = ["kim", 3, 5, "park"];
+let obj = new Word(obj2);
+console.log(obj.num);
+console.log(obj.str);
+interface square {
+  color: string;
+  width: number;
+}
+interface school {
+  name: string;
+  age?: number;
+}
+
+type Animal = { name: string };
+type Cat = { age: number } & Animal;
+let 학생: school = { name: "kim" };
+let 선생: school = { name: "kim", age: 20 };
+
+interface 브랜드 {
+  brand: Name;
+}
+interface 시리얼 extends 브랜드 {
+  serialNumber: number;
+}
+interface 모델 extends 시리얼 {
+  model: string[];
+}
+
+let 상품: 모델 = {
+  brand: "Samsung",
+  serialNumber: 1360,
+  model: ["TV", "phone"],
+};
+interface Cart {
+  product: string;
+  price: number;
+}
+interface 불린 extends Cart {
+  card: boolean;
+}
+
+let 장바구니: 불린[] = [
+  { product: "청소기", price: 7000, card: false },
+  { product: "삼다수", price: 800, card: false },
+];
+interface MathObj {
+  plus: (a: number, b: number) => number;
+  minus: (a: number, b: number) => number;
+}
+
+let 오브젝트2: MathObj = {
+  plus(a, b) {
+    return a + b;
+  },
+  minus(a, b) {
+    return a - b;
+  },
+};
+function 전부더하기(...a: number[]) {}
+전부더하기(1, 2, 4, 6, 5, 3);
+let { student2, age2 } = {
+  student2: true,
+  age2: 20,
+};
+let 오브젝트6 = { student2: true, age2: 20 };
+function 함수6({ student2, age2 }: { student2: boolean; age2: number }) {
+  console.log(student2, age2);
+}
+
+function 반복(...a: number[]) {
+  for (let i = 0; i < a.length; i++) {
+    let result: number = 0;
+    if (a[i] >= result) {
+      result = a[i];
+    } else if (a[i] <= result) {
+      result = result;
+    }
+    return result;
+  }
+}
+
+반복(6, 3, 7, 2);
+function 함수8({
+  user,
+  comment,
+  admin,
+}: {
+  user: string;
+  comment: number[];
+  admin: boolean;
+}) {
+  console.log(user, comment, admin);
+}
+함수8({ user: "kim", comment: [3, 5, 4], admin: false });
+function 함수9(a: [number, string, boolean]) {
+  console.log(a);
+}
+함수9([40, "wine", false]);
