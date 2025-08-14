@@ -337,3 +337,103 @@ function 함수9(a: [number, string, boolean]) {
   console.log(a);
 }
 함수9([40, "wine", false]);
+function 함수55(a: string | undefined) {
+  if (a && typeof a === "string") {
+  }
+}
+
+type Fish = { swim: string };
+type Bird = { fly: string };
+function 함수87(animal: Fish | Bird) {
+  if ("swim" in animal) {
+    animal.swim;
+  }
+}
+
+let 날짜 = new Date();
+if (날짜 instanceof Date) {
+}
+type Car = {
+  wheel: "4개";
+  color: string;
+};
+type Bike = {
+  wheel: "2개";
+  color: string;
+};
+function 함수75(x: Car | Bike) {
+  if (x.wheel === "4개") {
+    console.log("x는 Car타입");
+  }
+  if (x.wheel === "2개") {
+    console.log("x는 Bike타입");
+  }
+}
+function 함수90(): never {
+  throw new Error();
+  while (true) {}
+}
+class User {
+  name: string;
+  private familyName: string = "kim";
+  constructor(a: string) {
+    this.name = a + this.familyName;
+  }
+  이름변경함수() {
+    this.familyName = "park";
+  }
+}
+let 유저1 = new User("민수");
+console.log(유저1);
+유저1.이름변경함수();
+
+class Person3 {
+  constructor(public name: string) {}
+}
+let 자식 = new Person3("dd");
+class User4 {
+  x = 10;
+}
+class NewUser extends User4 {}
+let 사람3 = new NewUser();
+
+class User5 {
+  protected x = 10;
+}
+class NewUser2 extends User5 {
+  doThis() {
+    this.x = 20;
+  }
+}
+class User9 {
+  private static x = 10;
+  public static y = 20;
+  public static  addOne(a: number) {
+    User9.x = a + User9.x;
+  }
+  public static  printX() {
+    console.log(User9.x);
+  }
+}
+User9.addOne(3); //이렇게 하면 x가 3 더해져야함
+User9.addOne(4); //이렇게 하면 x가 4 더해져야함
+User9.printX(); //이렇게 하면 콘솔창에 x값이 출력되어야함
+function Square(a, b, c) {
+  this.width = 400;
+  this.height = 400;
+  this.writeWidth = a;
+  this.writeHeight = b;
+  this.color = c;
+    this.draw = function() {
+    // 예시: div를 생성해서 body에 붙이는 방식
+    let box = document.createElement('div');
+    box.style.width = this.writeWidth + 'px';
+    box.style.height = this.writeHeight + 'px';
+    box.style.backgroundColor = this.color;
+    document.body.appendChild(box);
+}
+let 네모 = new Square(30, 30, "red");
+네모.draw();
+네모.draw();
+네모.draw();
+네모.draw();
