@@ -408,32 +408,89 @@ class NewUser2 extends User5 {
 class User9 {
   private static x = 10;
   public static y = 20;
-  public static  addOne(a: number) {
+  public static addOne(a: number) {
     User9.x = a + User9.x;
   }
-  public static  printX() {
+  public static printX() {
     console.log(User9.x);
   }
 }
 User9.addOne(3); //이렇게 하면 x가 3 더해져야함
 User9.addOne(4); //이렇게 하면 x가 4 더해져야함
 User9.printX(); //이렇게 하면 콘솔창에 x값이 출력되어야함
-function Square(a, b, c) {
-  this.width = 400;
-  this.height = 400;
-  this.writeWidth = a;
-  this.writeHeight = b;
-  this.color = c;
-    this.draw = function() {
-    // 예시: div를 생성해서 body에 붙이는 방식
-    let box = document.createElement('div');
-    box.style.width = this.writeWidth + 'px';
-    box.style.height = this.writeHeight + 'px';
-    box.style.backgroundColor = this.color;
-    document.body.appendChild(box);
+class Square {
+  constructor(
+    public width: number,
+    public height: number,
+    public color: string
+  ) {}
+  draw() {
+    let a = Math.random();
+    let square = `<div style="position:relative; 
+      top:${a * 400}px; 
+      left:${a * 400}px; 
+      width:${this.width}px; 
+      height : ${this.height}px; 
+      background:${this.color}"></div>`;
+    document.body.insertAdjacentHTML("beforeend", square);
+  }
 }
+
 let 네모 = new Square(30, 30, "red");
 네모.draw();
 네모.draw();
 네모.draw();
 네모.draw();
+import { 네임스페이스, 나이3 } from "./a";
+console.log(나이3);
+let 변수: 네임스페이스.Name3 = "park";
+import { Car2, Bike2 } from "./a";
+let 빠방이: Car2 = { wheel: 4, model: "Sonata" };
+
+import { ObjFunction } from "./a";
+
+let 함수4: ObjFunction = function (a) {
+  console.log(a);
+};
+
+함수4({ abc: "안뇽" });
+function 함수11<MyType>(x: MyType[]): MyType {
+  return x[0];
+}
+let a4 = 함수11<number>([4, 2]);
+let a6 = 함수11<string>(["4", "2"]);
+
+console.log(a4);
+interface lengthCheck {
+  length: number;
+}
+function 빼기<MyType extends lengthCheck>(x: MyType) {
+  return x.length;
+}
+let ss = 빼기<string[]>(["100"]);
+function 함수43<MyType extends string | string[]>(x: MyType) {
+  console.log(x.length);
+}
+
+함수43<string>("hello");
+함수43<string[]>(["kim", "park"]);
+interface Animal2 {
+  name: string;
+  age: number;
+}
+
+let data = '{"name" : "dog", "age" : 1 }';
+
+function 함수556<Type>(x: string): Type {
+  return JSON.parse(x);
+}
+let result = 함수556<Animal>(data);
+console.log(result);
+class Person6<T> {
+  name;
+  constructor(a: T) {
+    this.name = a;
+  }
+}
+let a = new Person6<string>("어쩌구");
+a.name;
