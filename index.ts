@@ -108,8 +108,8 @@ const 여친: GirlfriendType = {
 };
 
 type Name = string;
-type Age = number;
-type Person2 = Name | Age;
+type Age2 = number;
+type Person2 = Name | Age2;
 
 type PositionX = { x: number };
 type PositionY = { y: number };
@@ -494,3 +494,24 @@ class Person6<T> {
 }
 let a = new Person6<string>("어쩌구");
 a.name;
+
+import { Age } from "./types/common";
+let 이름22: string = "김";
+
+interface StringOnly {
+  [key: number]: string;
+}
+let user6: StringOnly = {
+  1: "kim",
+  2: "20",
+  3: "seoul",
+};
+type Car5 = {
+  color: boolean;
+  model: boolean;
+  price: boolean | number;
+};
+type TypeChanger<MyType> = {
+  [key in keyof MyType]: string | number;
+};
+type 새로운타입 = TypeChanger<Car5>;
