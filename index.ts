@@ -515,3 +515,15 @@ type TypeChanger<MyType> = {
   [key in keyof MyType]: string | number;
 };
 type 새로운타입 = TypeChanger<Car5>;
+type Age4<T> = T extends (infer R)[] ? R : unknown;
+let g: Age4<string>;
+type FirstItem<T> = T extends [] ? [] : any;
+type a4 = Age4<string[]>;
+
+type c3 = ReturnType<() => void>;
+type Age24<T> = T extends [string, ...any] ? T[0] : unknown;
+let age1: Age4<[string, number]>;
+let age24: Age4<[boolean, number]>;
+
+type 타입뽑기<T> = T extends (x: infer R) => any ? R : any;
+type a54 = 타입뽑기<(x: string) => void>;
